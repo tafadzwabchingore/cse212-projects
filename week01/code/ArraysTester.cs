@@ -1,8 +1,10 @@
-public static class ArraysTester {
+public static class ArraysTester
+{
     /// <summary>
     /// Entry point for the tests
     /// </summary>
-    public static void Run() {
+    public static void Run()
+    {
         // Sample Test Cases (may not be comprehensive)
         Console.WriteLine("\n=========== PROBLEM 1 TESTS ===========");
         double[] multiples = MultiplesOf(7, 5);
@@ -39,9 +41,20 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+
+        // We need to create a list to hold the results, then we'll loop through the length 
+        // and add the number multiplied by the index to the list.  Finally, we'll return the list
+        // as an array.
+        List<double> results = new();
+
+        for (int i = 0; i < length; i++)
+        {
+            results.Add(number * (i + 1));
+        }
+
+        return results.ToArray();
     }
-    
+
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
     /// <c>&lt;List&gt;{1, 2, 3, 4, 5, 6, 7, 8, 9}</c> and an amount is 3 then the list returned should be 
@@ -57,5 +70,12 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+
+        // We need to remove the last 'amount' items from the list and then add them to the beginning of the list.
+        // We can use the GetRange method to get the last 'amount' items and then use the RemoveRange method to remove
+        // them from the list.  Finally, we can use the InsertRange method to add them to the beginning of the list.
+        var sublist = data.GetRange(data.Count - amount, amount);
+        data.RemoveRange(data.Count - amount, amount);
+        data.InsertRange(0, sublist);
     }
 }

@@ -10,3 +10,12 @@
 
 Console.WriteLine("\n======================\nProve 1 - Arrays / Lists\n======================");
 ArraysTester.Run();
+
+/*Practice*/
+Console.Write("What is your first name?");
+string name = Console.ReadLine();
+
+Console.Write("What is your surname?");
+string surname = Console.ReadLine();
+
+Console.Write($"Your name is {surname}, {name} {surname}.");
